@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python /home/pablo/Jupyter/drone_cat_mouse/referee.py /home/pablo/Jupyter/drone_cat_mouse/referee.yml
