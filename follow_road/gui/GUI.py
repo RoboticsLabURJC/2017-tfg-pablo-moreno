@@ -114,6 +114,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             icon.addPixmap(QtGui.QPixmap(":/images/play.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.pushButton.setIcon(icon)
             self.algorithm.stop()
+            self.rotationDial.setValue(self.altdSlider.maximum()/2)
+            self.altdSlider.setValue(self.altdSlider.maximum()/2)
+            self.cmdvel.sendCMDVel(0,0,0,0,0,0)
+            self.teleop.stopSIG.emit()
 
     def resetClicked(self):
         if self.reset == True:
@@ -124,6 +128,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.resetButton.setText("Unreset")
             self.extra.reset()
             self.reset=True
+            self.rotationDial.setValue(self.altdSlider.maximum()/2)
+            self.altdSlider.setValue(self.altdSlider.maximum()/2)
+            self.teleop.stopSIG.emit()
 
     def takeOffClicked(self):
         if(self.takeoff==True):
@@ -134,16 +141,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.takeoffButton.setText("Land")
             self.extra.takeoff()
             self.takeoff=True
-
-    def resetClicked(self):
-        if self.reset == True:
-            self.resetButton.setText("Reset")
-            self.extra.reset()
-            self.reset=False
-        else:
-            self.resetButton.setText("Unreset")
-            self.extra.reset()
-            self.reset=True
 
     def changeCamera(self):
         self.extra.toggleCam()
