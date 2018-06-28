@@ -29,6 +29,12 @@ class MyAlgorithm(threading.Thread):
         self.lock = threading.Lock()
         threading.Thread.__init__(self, args=self.stop_event)
 
+    def getImage(self):
+        self.lock.acquire()
+        img = self.camera.getImage().data
+        self.lock.release()
+        return img
+
     def setImageFiltered(self, image):
         self.lock.acquire()
         self.image=image
@@ -73,7 +79,7 @@ class MyAlgorithm(threading.Thread):
 
     def execute(self):
         # Add your code here
-        input_image = self.camera.getImage().data
+        input_image = self.getImage()
 
         if input_image is not None:
             image_HSV = cv2.cvtColor(input_image, cv2.COLOR_RGB2HSV)
@@ -100,8 +106,7 @@ class MyAlgorithm(threading.Thread):
             area = []
             for pic, contour in enumerate(contours):
                 area.append(cv2.contourArea(contour))
-                print("Area: " + str(area))
-            print("Size: " + str(len(area)))
+
             if len(area) > 1:
                 if area[0] < area[1]:
                     M = cv2.moments(contours[1])
@@ -134,7 +139,7 @@ class MyAlgorithm(threading.Thread):
 
                     print("Yaw: " + str((153-int(cx))*0.01))
                 self.cmdvel.sendVelocities()
-                
+
             #printing the filtered image
             self.setImageFiltered(image_HSV_filtered_Mask)
 
