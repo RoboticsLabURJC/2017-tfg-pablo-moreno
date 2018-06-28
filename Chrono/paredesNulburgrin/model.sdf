@@ -1,25 +1,22 @@
 <?xml version='1.0'?>
 <sdf version="1.4">
-<model name="nulburgrin">
+<model name="parednulburgrin">
   <static>true</static>
-    <link name="nulburgrin">
+    <link name="parednulburgrin">
     	<pose>0 0 0 0 0 0</pose>
         <collision name="collision">
             <geometry>
-               <!-- <mesh>
+               <mesh>
                   <scale>2 2 2</scale>
-                  <uri>model://nulburgrinLine/meshes/Circuito_Nulburgrin.dae</uri>
-               </mesh> -->
-               <plane>
-                  <size> 200 200</size>
-               </plane>
+                  <uri>model://paredesNulburgrin/meshes/Nulburgrin_Pared.dae</uri>
+               </mesh>
             </geometry>
         </collision>
         <visual name="visual">
             <geometry>
                <mesh>
                   <scale>2 2 2</scale>
-                  <uri>model://nulburgrinLine/meshes/Circuito_Nulburgrin.dae</uri>
+                  <uri>model://paredesNulburgrin/meshes/Nulburgrin_Pared.dae</uri>
                </mesh>
             </geometry>
         </visual>
