@@ -1,0 +1,140 @@
+\documentclass[a4paper, 12pt, oneside]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{layout}
+\usepackage{emptypage}
+\usepackage{fancyhdr}
+\usepackage[spanish,activeacute]{babel}
+%\usepackage[Conny]{fncychap}
+%\usepackage{graphicx}
+\usepackage{subfigure} % subfiguras
+\usepackage{caption}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage[a4paper,top=3cm, bottom=3cm, inner=2.5cm, outer=2.5cm]{geometry}
+\usepackage{listings}
+\usepackage[spanish]{babel}
+\usepackage{url}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{rotating} 
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage[spanish]{babel}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{mwe}
+\usepackage[acronym, nonumberlist]{glossaries}
+\makeglossaries
+
+\makeatletter
+\renewcommand{\@makeschapterhead}[1]{%
+%  \vspace*{50\p@}%
+  \vspace*{0\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par \nobreak
+%    \vskip 40\p@
+    \vskip 15\p@
+  }}
+\makeatother
+
+\renewcommand{\baselinestretch}{1.4}
+\setlength{\headheight}{16pt} 
+\captionsetup{justification=justified}
+\pretolerance=1000
+
+\chead[]{}
+\rhead[]{}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\pagestyle{empty}
+
+\title{Pr\'acticas Docentes de Rob\'otica en el Entorno JdeRobot-Academy}
+\author{Pablo Moreno Vera}
+
+\lstset{
+	float=hbp,
+	basicstyle=\ttfamily\small,
+	columns=flexible,
+	tabsize=4,
+	frame=single,
+	extendedchars=true,
+	showspaces=false,
+	showstringspaces=false,
+	numbers=none,
+	numberstyle=\tiny,
+	breaklines=false,
+	breakautoindent=true,
+	captionpos=b
+}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\definecolor{lightgray}{gray}{0.9}
+
+\begin{document}
+%%%%%%%%%%%%%%% Portada %%%%%%%%%%%%%%%%%%%%
+\include{0-Portada}
+
+\pagenumbering{Roman}
+
+%%%%%%%%%%%%%%% Agradecimientos %%%%%%%%%%%%
+\include{0-Agradecimientos}
+
+
+%%%%%%%%%%%%%%% Resumen %%%%%%%%%%%%%%%%%%%%
+\include{0-Resumen}
+\cleardoublepage
+
+%%%%%%%%%%%%%%% Ìndices %%%%%%%%%%%%%%%%%%%%
+%\cleardoublepage
+%\renewcommand{\tablename}{Tabla}
+%\renewcommand{\listtablename}{\'Indice de tablas}
+%\tableofcontents
+
+%\cleardoublepage % ͭndice de figuras
+%\addcontentsline{toc}{chapter}{\listfigurename}
+%\listoffigures
+
+%\cleardoublepage % ͭndice de tablas
+%\addcontentsline{toc}{chapter}{\'Indice de tablas}
+%\listoftables 
+\cleardoublepage
+\tableofcontents % indice de contenidos
+\listoffigures % indice de figuras
+\addcontentsline{toc}{chapter}{\'Indice de figuras} % para que aparezca en el indice de contenidos
+
+\cleardoublepage
+
+%%%%%%%%%%%%%%% Acronimos %%%%%%%%%%%%%%%%%%%%
+%\include{0-Acronimos}
+
+%%%%%%%%%%%%%%% Cap��tulos %%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setlength{\parindent}{6mm}
+
+\lhead[]{CAP\'ITULO \thechapter. INTRODUCCI\'ON}
+\include{1-Introduccion}
+\lhead[]{CAP\'ITULO \thechapter. OBJETIVOS}
+\include{2-Objetivos}
+\lhead[]{CAP\'ITULO \thechapter. INFRAESTRUCTURA}
+\include{3-Infraestructura}
+%\lhead[]{CAP\'ITULO \thechapter. FOLLOW FACE}
+%\include{4-FollowFace}
+%\lhead[]{CAP\'ITULO \thechapter. LASER LOC}
+%\include{5-LaserLoc}
+\lhead[]{CAP\'ITULO \thechapter. CONCLUSIONES}
+\include{6-Conclusiones}
+
+%%%%%%%%%%%%%%% Bibliogra��a %%%%%%%%%%%%%%%
+
+\nocite{*}
+\lhead[]{BIBLIOGRAF\'IA}
+\include{7-Bibliografia}
+\end{document}
