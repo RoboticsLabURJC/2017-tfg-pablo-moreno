@@ -29,12 +29,6 @@ class MyAlgorithm(threading.Thread):
         self.lock = threading.Lock()
         threading.Thread.__init__(self, args=self.stop_event)
 
-    def getImage(self):
-        self.lock.acquire()
-        img = self.camera.getImage().data
-        self.lock.release()
-        return img
-
     def setImageFiltered(self, image):
         self.lock.acquire()
         self.image=image
@@ -79,7 +73,7 @@ class MyAlgorithm(threading.Thread):
 
     def execute(self):
         # Add your code here
-        input_image = self.getImage()
+        input_image = self.camera.getImage().data
 
         if input_image is not None:
             image_HSV = cv2.cvtColor(input_image, cv2.COLOR_RGB2HSV)
@@ -90,11 +84,14 @@ class MyAlgorithm(threading.Thread):
             image_HSV_filtered = cv2.inRange(image_HSV, value_min_HSV, value_max_HSV)
 
             #Reducing noise
-            closing = cv2.morphologyEx(image_HSV_filtered, cv2.MORPH_CLOSE, np.ones((5,5),np.uint8))
-            opening = cv2.morphologyEx(closing, cv2.MORPH_OPEN, np.ones((5,5),np.uint8))
+            opening = cv2.morphologyEx(image_HSV_filtered, cv2.MORPH_OPEN, np.ones((5,5),np.uint8))
+            closing = cv2.morphologyEx(opening, cv2.MORPH_CLOSE, np.ones((10,10),np.uint8))
+
 
             #Filtered image
-            image_HSV_filtered_Mask = np.dstack((opening, opening, opening))
+            #image_HSV_filtered_Mask = np.dstack((image_HSV_filtered, image_HSV_filtered, image_HSV_filtered))
+            #image_HSV_filtered_Mask = np.dstack((opening, opening, opening))
+            image_HSV_filtered_Mask = np.dstack((closing, closing, closing))
 
             #drawing contours
             imgray = cv2.cvtColor(image_HSV_filtered_Mask, cv2.COLOR_BGR2GRAY)
@@ -106,7 +103,8 @@ class MyAlgorithm(threading.Thread):
             area = []
             for pic, contour in enumerate(contours):
                 area.append(cv2.contourArea(contour))
-
+                print("Area: " + str(area))
+            print("Size: " + str(len(area)))
             if len(area) > 1:
                 if area[0] < area[1]:
                     M = cv2.moments(contours[1])
@@ -139,6 +137,7 @@ class MyAlgorithm(threading.Thread):
 
                     print("Yaw: " + str((153-int(cx))*0.01))
                 self.cmdvel.sendVelocities()
+                
 
             #printing the filtered image
             self.setImageFiltered(image_HSV_filtered_Mask)
