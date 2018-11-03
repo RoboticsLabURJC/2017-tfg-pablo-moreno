@@ -90,45 +90,45 @@ The following list represent the MAVROS Plugins availables to connect the drone:
 - [x] /mavros/state
 - [ ] /mavros/statustext/recv
 - [ ] /mavros/statustext/send
-- [ ] /mavros/target_actuator_control
-- [ ] /mavros/time_reference
-- [ ] /mavros/timesync_status
+- [x] /mavros/target_actuator_control
+- [x] /mavros/time_reference
+- [x] /mavros/timesync_status
 - [ ] /mavros/trajectory/desired
 - [ ] /mavros/trajectory/generated
 - [ ] /mavros/trajectory/path
-- [ ] /mavros/vfr_hud
+- [x] /mavros/vfr_hud
 - [ ] /mavros/vision_pose/pose
 - [ ] /mavros/vision_pose/pose_cov
 - [ ] /mavros/vision_speed/speed_twist_cov
 - [ ] /mavros/wind_estimation
-- [ ] /rosout
+- [x] /rosout
 - [ ] /rosout_agg
-- [ ] /solo/cam_frontal/camera_info
-- [ ] /solo/cam_frontal/image_raw
-- [ ] /solo/cam_frontal/image_raw/compressed
-- [ ] /solo/cam_frontal/image_raw/compressed/parameter_descriptions
-- [ ] /solo/cam_frontal/image_raw/compressed/parameter_updates
+- [x] /solo/cam_frontal/camera_info
+- [x] /solo/cam_frontal/image_raw
+- [x] /solo/cam_frontal/image_raw/compressed
+- [x] /solo/cam_frontal/image_raw/compressed/parameter_descriptions
+- [x] /solo/cam_frontal/image_raw/compressed/parameter_updates
 - [ ] /solo/cam_frontal/image_raw/compressedDepth
-- [ ] /solo/cam_frontal/image_raw/compressedDepth/parameter_descriptions
-- [ ] /solo/cam_frontal/image_raw/compressedDepth/parameter_updates
-- [ ] /solo/cam_frontal/image_raw/theora
-- [ ] /solo/cam_frontal/image_raw/theora/parameter_descriptions
-- [ ] /solo/cam_frontal/image_raw/theora/parameter_updates
-- [ ] /solo/cam_frontal/parameter_descriptions
-- [ ] /solo/cam_frontal/parameter_updates
-- [ ] /solo/cam_ventral/camera_info
-- [ ] /solo/cam_ventral/image_raw
-- [ ] /solo/cam_ventral/image_raw/compressed
-- [ ] /solo/cam_ventral/image_raw/compressed/parameter_descriptions
-- [ ] /solo/cam_ventral/image_raw/compressed/parameter_updates
+- [x] /solo/cam_frontal/image_raw/compressedDepth/parameter_descriptions
+- [x] /solo/cam_frontal/image_raw/compressedDepth/parameter_updates
+- [x] /solo/cam_frontal/image_raw/theora
+- [x] /solo/cam_frontal/image_raw/theora/parameter_descriptions
+- [x] /solo/cam_frontal/image_raw/theora/parameter_updates
+- [x] /solo/cam_frontal/parameter_descriptions
+- [x] /solo/cam_frontal/parameter_updates
+- [x] /solo/cam_ventral/camera_info
+- [x] /solo/cam_ventral/image_raw
+- [x] /solo/cam_ventral/image_raw/compressed
+- [x] /solo/cam_ventral/image_raw/compressed/parameter_descriptions
+- [x] /solo/cam_ventral/image_raw/compressed/parameter_updates
 - [ ] /solo/cam_ventral/image_raw/compressedDepth
-- [ ] /solo/cam_ventral/image_raw/compressedDepth/parameter_descriptions
-- [ ] /solo/cam_ventral/image_raw/compressedDepth/parameter_updates
-- [ ] /solo/cam_ventral/image_raw/theora
-- [ ] /solo/cam_ventral/image_raw/theora/parameter_descriptions
-- [ ] /solo/cam_ventral/image_raw/theora/parameter_updates
-- [ ] /solo/cam_ventral/parameter_descriptions
-- [ ] /solo/cam_ventral/parameter_updates
+- [x] /solo/cam_ventral/image_raw/compressedDepth/parameter_descriptions
+- [x] /solo/cam_ventral/image_raw/compressedDepth/parameter_updates
+- [x] /solo/cam_ventral/image_raw/theora
+- [x] /solo/cam_ventral/image_raw/theora/parameter_descriptions
+- [x] /solo/cam_ventral/image_raw/theora/parameter_updates
+- [x] /solo/cam_ventral/parameter_descriptions
+- [x] /solo/cam_ventral/parameter_updates
 - [ ] /tf
-- [ ] /tf_static
+- [x] /tf_static
 
