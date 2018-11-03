@@ -2,40 +2,40 @@
 
 The following list represent the MAVROS Plugins availables to connect the drone:
 
-- [ ] /clock
-- [ ] /diagnostics
-- [ ] /gazebo/link_states
-- [ ] /gazebo/model_states
-- [ ] /gazebo/parameter_descriptions
-- [ ] /gazebo/parameter_updates
+- [x] /clock
+- [x] /diagnostics
+- [x] /gazebo/link_states
+- [x] /gazebo/model_states
+- [x] /gazebo/parameter_descriptions
+- [x] /gazebo/parameter_updates
 - [ ] /gazebo/set_link_state
 - [ ] /gazebo/set_model_state
-- [ ] /gazebo_gui/parameter_descriptions
-- [ ] /gazebo_gui/parameter_updates
-- [ ] /mavlink/from
+- [x] /gazebo_gui/parameter_descriptions
+- [x] /gazebo_gui/parameter_updates
+- [x] /mavlink/from
 - [ ] /mavlink/to
 - [ ] /mavros/actuator_control
 - [ ] /mavros/adsb/send
 - [ ] /mavros/adsb/vehicle
-- [ ] /mavros/altitude
-- [ ] /mavros/battery
+- [x] /mavros/altitude
+- [x] /mavros/battery
 - [ ] /mavros/cam_imu_sync/cam_imu_stamp
 - [ ] /mavros/debug_value/debug
 - [ ] /mavros/debug_value/debug_vector
 - [ ] /mavros/debug_value/named_value_float
 - [ ] /mavros/debug_value/named_value_int
 - [ ] /mavros/debug_value/send
-- [ ] /mavros/extended_state
+- [x] /mavros/extended_state
 - [ ] /mavros/fake_gps/mocap/tf
-- [ ] /mavros/global_position/compass_hdg
-- [ ] /mavros/global_position/global
+- [x] /mavros/global_position/compass_hdg
+- [x] /mavros/global_position/global
 - [ ] /mavros/global_position/gp_lp_offset
 - [ ] /mavros/global_position/gp_origin
 - [ ] /mavros/global_position/home
-- [ ] /mavros/global_position/local
-- [ ] /mavros/global_position/raw/fix
-- [ ] /mavros/global_position/raw/gps_vel
-- [ ] /mavros/global_position/rel_alt
+- [x] /mavros/global_position/local
+- [x] /mavros/global_position/raw/fix
+- [x] /mavros/global_position/raw/gps_vel
+- [x] /mavros/global_position/rel_alt
 - [ ] /mavros/global_position/set_gp_origin
 - [ ] /mavros/gps_rtk/send_rtcm
 - [ ] /mavros/hil/actuator_controls
