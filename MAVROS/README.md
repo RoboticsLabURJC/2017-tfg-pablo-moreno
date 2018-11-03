@@ -1,6 +1,6 @@
 # MAVROS Plugins list
 
-The following list represent the MAVROS Plugins availables to connect the drone:
+The following list represent the MAVROS Plugins availables to connect the drone. The check marks represent the plugins working when the world is open but the JdeRobot-Academic-Node is not launch yet:
 
 - [x] /clock
 - [x] /diagnostics
