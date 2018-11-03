@@ -45,24 +45,24 @@ The following list represent the MAVROS Plugins availables to connect the drone:
 - [ ] /mavros/hil/optical_flow
 - [ ] /mavros/hil/rc_inputs
 - [ ] /mavros/hil/state
-- [ ] /mavros/home_position/home
+- [x] /mavros/home_position/home
 - [ ] /mavros/home_position/set
-- [ ] /mavros/imu/data
-- [ ] /mavros/imu/data_raw
+- [x] /mavros/imu/data
+- [x] /mavros/imu/data_raw
 - [ ] /mavros/imu/diff_pressure
-- [ ] /mavros/imu/mag
-- [ ] /mavros/imu/static_pressure
+- [x] /mavros/imu/mag
+- [x] /mavros/imu/static_pressure
 - [ ] /mavros/imu/temperature_baro
-- [ ] /mavros/imu/temperature_imu
-- [ ] /mavros/local_position/odom
-- [ ] /mavros/local_position/pose
-- [ ] /mavros/local_position/velocity
+- [x] /mavros/imu/temperature_imu
+- [x] /mavros/local_position/odom
+- [x] /mavros/local_position/pose
+- [x] /mavros/local_position/velocity
 - [ ] /mavros/log_transfer/raw/log_data
 - [ ] /mavros/log_transfer/raw/log_entry
 - [ ] /mavros/manual_control/control
 - [ ] /mavros/manual_control/send
 - [ ] /mavros/mission/reached
-- [ ] /mavros/mission/waypoints
+- [x] /mavros/mission/waypoints
 - [ ] /mavros/mocap/pose
 - [ ] /mavros/obstacle/send
 - [ ] /mavros/odometry/odom
@@ -82,12 +82,12 @@ The following list represent the MAVROS Plugins availables to connect the drone:
 - [ ] /mavros/setpoint_raw/attitude
 - [ ] /mavros/setpoint_raw/global
 - [ ] /mavros/setpoint_raw/local
-- [ ] /mavros/setpoint_raw/target_attitude
+- [x] /mavros/setpoint_raw/target_attitude
 - [ ] /mavros/setpoint_raw/target_global
-- [ ] /mavros/setpoint_raw/target_local
+- [x] /mavros/setpoint_raw/target_local
 - [ ] /mavros/setpoint_velocity/cmd_vel
 - [ ] /mavros/setpoint_velocity/cmd_vel_unstamped
-- [ ] /mavros/state
+- [x] /mavros/state
 - [ ] /mavros/statustext/recv
 - [ ] /mavros/statustext/send
 - [ ] /mavros/target_actuator_control
