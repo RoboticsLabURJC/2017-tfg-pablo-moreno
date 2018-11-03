@@ -1,5 +1,7 @@
 # MAVROS Plugins list
 
+The following list represent the MAVROS Plugins availables to connect the drone:
+
 * /clock
 * /diagnostics
 * /gazebo/link_states
