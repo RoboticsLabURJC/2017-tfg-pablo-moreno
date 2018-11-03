@@ -98,37 +98,37 @@ The following list represent the MAVROS Plugins availables to connect the drone:
 - [ ] /mavros/trajectory/path
 - [ ] /mavros/vfr_hud
 - [ ] /mavros/vision_pose/pose
-- [ ] - [ ] /mavros/vision_pose/pose_cov
-- [ ] - [ ] /mavros/vision_speed/speed_twist_cov
-- [ ] - [ ] /mavros/wind_estimation
-- [ ] - [ ] /rosout
-- [ ] - [ ] /rosout_agg
-- [ ] - [ ] /solo/cam_frontal/camera_info
-- [ ] - [ ] /solo/cam_frontal/image_raw
-- [ ] - [ ] /solo/cam_frontal/image_raw/compressed
-- [ ] - [ ] /solo/cam_frontal/image_raw/compressed/parameter_descriptions
-- [ ] - [ ] /solo/cam_frontal/image_raw/compressed/parameter_updates
-- [ ] - [ ] /solo/cam_frontal/image_raw/compressedDepth
-- [ ] - [ ] /solo/cam_frontal/image_raw/compressedDepth/parameter_descriptions
-- [ ] - [ ] /solo/cam_frontal/image_raw/compressedDepth/parameter_updates
-- [ ] - [ ] /solo/cam_frontal/image_raw/theora
-- [ ] - [ ] /solo/cam_frontal/image_raw/theora/parameter_descriptions
-- [ ] - [ ] /solo/cam_frontal/image_raw/theora/parameter_updates
-- [ ] - [ ] /solo/cam_frontal/parameter_descriptions
-- [ ] - [ ] /solo/cam_frontal/parameter_updates
-- [ ] - [ ] /solo/cam_ventral/camera_info
-- [ ] - [ ] /solo/cam_ventral/image_raw
-- [ ] - [ ] /solo/cam_ventral/image_raw/compressed
-- [ ] - [ ] /solo/cam_ventral/image_raw/compressed/parameter_descriptions
-- [ ] - [ ] /solo/cam_ventral/image_raw/compressed/parameter_updates
-- [ ] - [ ] /solo/cam_ventral/image_raw/compressedDepth
-- [ ] - [ ] /solo/cam_ventral/image_raw/compressedDepth/parameter_descriptions
-- [ ] - [ ] /solo/cam_ventral/image_raw/compressedDepth/parameter_updates
-- [ ] - [ ] /solo/cam_ventral/image_raw/theora
-- [ ] - [ ] /solo/cam_ventral/image_raw/theora/parameter_descriptions
-- [ ] - [ ] /solo/cam_ventral/image_raw/theora/parameter_updates
-- [ ] - [ ] /solo/cam_ventral/parameter_descriptions
-- [ ] - [ ] /solo/cam_ventral/parameter_updates
-- [ ] - [ ] /tf
-- [ ] - [ ] /tf_static
+- [ ] /mavros/vision_pose/pose_cov
+- [ ] /mavros/vision_speed/speed_twist_cov
+- [ ] /mavros/wind_estimation
+- [ ] /rosout
+- [ ] /rosout_agg
+- [ ] /solo/cam_frontal/camera_info
+- [ ] /solo/cam_frontal/image_raw
+- [ ] /solo/cam_frontal/image_raw/compressed
+- [ ] /solo/cam_frontal/image_raw/compressed/parameter_descriptions
+- [ ] /solo/cam_frontal/image_raw/compressed/parameter_updates
+- [ ] /solo/cam_frontal/image_raw/compressedDepth
+- [ ] /solo/cam_frontal/image_raw/compressedDepth/parameter_descriptions
+- [ ] /solo/cam_frontal/image_raw/compressedDepth/parameter_updates
+- [ ] /solo/cam_frontal/image_raw/theora
+- [ ] /solo/cam_frontal/image_raw/theora/parameter_descriptions
+- [ ] /solo/cam_frontal/image_raw/theora/parameter_updates
+- [ ] /solo/cam_frontal/parameter_descriptions
+- [ ] /solo/cam_frontal/parameter_updates
+- [ ] /solo/cam_ventral/camera_info
+- [ ] /solo/cam_ventral/image_raw
+- [ ] /solo/cam_ventral/image_raw/compressed
+- [ ] /solo/cam_ventral/image_raw/compressed/parameter_descriptions
+- [ ] /solo/cam_ventral/image_raw/compressed/parameter_updates
+- [ ] /solo/cam_ventral/image_raw/compressedDepth
+- [ ] /solo/cam_ventral/image_raw/compressedDepth/parameter_descriptions
+- [ ] /solo/cam_ventral/image_raw/compressedDepth/parameter_updates
+- [ ] /solo/cam_ventral/image_raw/theora
+- [ ] /solo/cam_ventral/image_raw/theora/parameter_descriptions
+- [ ] /solo/cam_ventral/image_raw/theora/parameter_updates
+- [ ] /solo/cam_ventral/parameter_descriptions
+- [ ] /solo/cam_ventral/parameter_updates
+- [ ] /tf
+- [ ] /tf_static
 
