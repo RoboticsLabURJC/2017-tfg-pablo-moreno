@@ -135,65 +135,65 @@ The following list represent the MAVROS Plugins availables to connect the drone.
 ## Plugins working with the Academic-Node
 The plugins connected by the "extra.py" drivers dos not show in the rostopic list.
 
-- [] /clock
-- [] /diagnostics
-- [] /gazebo/link_states
-- [] /gazebo/model_states
-- [] /gazebo/parameter_descriptions
-- [] /gazebo/parameter_updates
-- [] /gazebo_gui/parameter_descriptions
-- [] /gazebo_gui/parameter_updates
-- [] /mavlink/from
-- [] /mavros/altitude
-- [] /mavros/battery
-- [] /mavros/extended_state
-- [] /mavros/global_position/compass_hdg
-- [] /mavros/global_position/global
-- [] /mavros/global_position/local
-- [] /mavros/global_position/raw/fix
-- [] /mavros/global_position/raw/gps_vel
-- [] /mavros/global_position/rel_alt
-- [] /mavros/home_position/home
-- [] /mavros/imu/data
-- [] /mavros/imu/data_raw
-- [] /mavros/imu/mag
-- [] /mavros/imu/static_pressure
-- [] /mavros/imu/temperature_imu
-- [] /mavros/local_position/odom
-- [] /mavros/local_position/pose
-- [] /mavros/local_position/velocity
-- [] /mavros/mission/waypoints
-- [] /mavros/setpoint_raw/target_attitude
-- [] /mavros/setpoint_raw/target_local
+- [ ] /clock
+- [ ] /diagnostics
+- [ ] /gazebo/link_states
+- [ ] /gazebo/model_states
+- [ ] /gazebo/parameter_descriptions
+- [ ] /gazebo/parameter_updates
+- [ ] /gazebo_gui/parameter_descriptions
+- [ ] /gazebo_gui/parameter_updates
+- [ ] /mavlink/from
+- [ ] /mavros/altitude
+- [ ] /mavros/battery
+- [ ] /mavros/extended_state
+- [ ] /mavros/global_position/compass_hdg
+- [ ] /mavros/global_position/global
+- [ ] /mavros/global_position/local
+- [ ] /mavros/global_position/raw/fix
+- [ ] /mavros/global_position/raw/gps_vel
+- [ ] /mavros/global_position/rel_alt
+- [ ] /mavros/home_position/home
+- [ ] /mavros/imu/data
+- [ ] /mavros/imu/data_raw
+- [ ] /mavros/imu/mag
+- [ ] /mavros/imu/static_pressure
+- [ ] /mavros/imu/temperature_imu
+- [ ] /mavros/local_position/odom
+- [ ] /mavros/local_position/pose
+- [ ] /mavros/local_position/velocity
+- [ ] /mavros/mission/waypoints
+- [ ] /mavros/setpoint_raw/target_attitude
+- [ ] /mavros/setpoint_raw/target_local
 - [x] /mavros/setpoint_velocity/cmd_vel                     #Plugin connected by the academic node
-- [] /mavros/state
-- [] /mavros/target_actuator_control
-- [] /mavros/time_reference
-- [] /mavros/timesync_status
-- [] /mavros/vfr_hud
-- [] /rosout
-- [] /solo/cam_frontal/camera_info
-- [] /solo/cam_frontal/image_raw
-- [] /solo/cam_frontal/image_raw/compressed
-- [] /solo/cam_frontal/image_raw/compressed/parameter_descriptions
-- [] /solo/cam_frontal/image_raw/compressed/parameter_updates
-- [] /solo/cam_frontal/image_raw/compressedDepth/parameter_descriptions
-- [] /solo/cam_frontal/image_raw/compressedDepth/parameter_updates
-- [] /solo/cam_frontal/image_raw/theora
-- [] /solo/cam_frontal/image_raw/theora/parameter_descriptions
-- [] /solo/cam_frontal/image_raw/theora/parameter_updates
-- [] /solo/cam_frontal/parameter_descriptions
-- [] /solo/cam_frontal/parameter_updates
-- [] /solo/cam_ventral/camera_info
-- [] /solo/cam_ventral/image_raw
-- [] /solo/cam_ventral/image_raw/compressed
-- [] /solo/cam_ventral/image_raw/compressed/parameter_descriptions
-- [] /solo/cam_ventral/image_raw/compressed/parameter_updates
-- [] /solo/cam_ventral/image_raw/compressedDepth/parameter_descriptions
-- [] /solo/cam_ventral/image_raw/compressedDepth/parameter_updates
-- [] /solo/cam_ventral/image_raw/theora
-- [] /solo/cam_ventral/image_raw/theora/parameter_descriptions
-- [] /solo/cam_ventral/image_raw/theora/parameter_updates
-- [] /solo/cam_ventral/parameter_descriptions
-- [] /solo/cam_ventral/parameter_updates
-- [] /tf_static
+- [ ] /mavros/state
+- [ ] /mavros/target_actuator_control
+- [ ] /mavros/time_reference
+- [ ] /mavros/timesync_status
+- [ ] /mavros/vfr_hud
+- [ ] /rosout
+- [ ] /solo/cam_frontal/camera_info
+- [ ] /solo/cam_frontal/image_raw
+- [ ] /solo/cam_frontal/image_raw/compressed
+- [ ] /solo/cam_frontal/image_raw/compressed/parameter_descriptions
+- [ ] /solo/cam_frontal/image_raw/compressed/parameter_updates
+- [ ] /solo/cam_frontal/image_raw/compressedDepth/parameter_descriptions
+- [ ] /solo/cam_frontal/image_raw/compressedDepth/parameter_updates
+- [ ] /solo/cam_frontal/image_raw/theora
+- [ ] /solo/cam_frontal/image_raw/theora/parameter_descriptions
+- [ ] /solo/cam_frontal/image_raw/theora/parameter_updates
+- [ ] /solo/cam_frontal/parameter_descriptions
+- [ ] /solo/cam_frontal/parameter_updates
+- [ ] /solo/cam_ventral/camera_info
+- [ ] /solo/cam_ventral/image_raw
+- [ ] /solo/cam_ventral/image_raw/compressed
+- [ ] /solo/cam_ventral/image_raw/compressed/parameter_descriptions
+- [ ] /solo/cam_ventral/image_raw/compressed/parameter_updates
+- [ ] /solo/cam_ventral/image_raw/compressedDepth/parameter_descriptions
+- [ ] /solo/cam_ventral/image_raw/compressedDepth/parameter_updates
+- [ ] /solo/cam_ventral/image_raw/theora
+- [ ] /solo/cam_ventral/image_raw/theora/parameter_descriptions
+- [ ] /solo/cam_ventral/image_raw/theora/parameter_updates
+- [ ] /solo/cam_ventral/parameter_descriptions
+- [ ] /solo/cam_ventral/parameter_updates
+- [ ] /tf_static
