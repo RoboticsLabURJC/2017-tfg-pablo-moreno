@@ -133,6 +133,6 @@ The following list represent the MAVROS Plugins availables to connect the drone.
 - [x] /tf_static
 
 ## Plugins working with the Academic-Node
-The plugins connected by the academic-node, are the same as the ones marked before. The additional plugin connected is the following. The plugins connected by the "extra.py" driver (arming, takeoff and land), does not show in the rostopic list.
+The plugins connected by the academic-node, are the same as the ones marked before. The additional plugin connected is the following. The plugins connected by the "extra.py" driver (arming, takeoff and land), does not show in the rostopic list because they are modes.
 
-- [x] /mavros/setpoint_velocity/cmd_vel
+- [x] /mavros/local_position/velocity
