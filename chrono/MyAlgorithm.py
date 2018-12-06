@@ -67,7 +67,10 @@ class MyAlgorithm(threading.Thread):
             return float(posx), float(posy)
 
     def getImage(self):
-        return self.camera.getImage().data
+        self.lock.acquire()
+        img = self.camera.getImage().data
+        self.lock.release()
+        return img
 
     def setImageFiltered(self, image):
         self.lock.acquire()
