@@ -1,30 +1,36 @@
 \chapter{Ejercicio de cronometraje de vueltas competitivas con Gazebo y ROS}\label{cap.chrono}
-En este capítulo del TFG ya se han definido el contexto, los objetivos y las herramientas utilizadas para la consecución de este proyecto. En este capítulo abordaremos todo lo relacionado con el desarrollo de una de las prácticas llamada Chrono. Esta práctica forma parte del conjunto de prácticas de JdeRobot. Se explicará la infraestructura de soporte de la práctica, el software y el funcionamiento de la práctica.
+En este capítulo del TFG ya se han definido el contexto, los objetivos y las herramientas utilizadas para la consecución de este proyecto. En este capítulo abordaremos todo lo relacionado con el desarrollo de una de las prácticas llamada \textit{Chrono}. Esta práctica forma parte del conjunto de prácticas de \textit{JdeRobot}. Se explicará la infraestructura de soporte de la práctica, el software y el funcionamiento de la práctica.
 
 \section{Enunciado}\label{sec.enunciado}
-El objetivo de esta práctica, enfocado al estudiante, es el desarrollo de un algoritmo que dote de la inteligencia necesario a un modelo de robot F1 que compite con el récord grabado para el circuito. De esta manera, no solo se permite el desarrollo de un algoritmo funcional, sino que se propone un avance en el grado de dificultad exigiendo al alumno que optimice su algoritmo para que consiga completar una vuelta al circuito sin colisionar y con un tiempo inferior al ofrecido.
+El objetivo de esta práctica, enfocado al estudiante, es el desarrollo de un algoritmo que dote de la inteligencia necesaria a un modelo de robot F1 que compite con el récord grabado para el circuito. De esta manera, no solo se permite el desarrollo de un algoritmo funcional, sino que se propone un avance en el grado de dificultad exigiendo al alumno que optimice su algoritmo para que consiga completar una vuelta al circuito sin colisionar y con un tiempo inferior al ofrecido.
 
 Para desarrollar la solución del algoritmo, el alumno deberá abordar distintos problemas relacionados con la programación. El primero de ellos es programar un algoritmo para realizar un filtrado de la imagen que capta el robot F1 por su cámara y escoger la línea roja central del circuito. Tras esto, el alumno deberá desarrollar un algoritmo que establezca un avance controlado del robot F1 para que siga la línea roja que ha sido filtrada por el algoritmo anterior.
 
 Como puede observarse en los problemas abordados, además de tener que afrontar los problemas, es necesario que sean abordados conjuntamente, ya que el movimiento controlado del modelo depende del filtrado de las imágenes. Para añadir dificultad a la práctica, es necesario que el algoritmo de control de movimiento del vehículo sea eficaz dado que, de otro modo, será más lento que la solución proporcionada y llegará en segundo lugar.
 
 \section{Infraestructura}
-En esta sección se abordarán los distintos elementos involucrados en la práctica. (Figura 4.1).
+En esta sección se abordarán los distintos elementos involucrados en la práctica (Figura \ref{fig.inf_chrono}).
 
 %\begin{figure}[H]
 %  \begin{center}
-%    \includegraphics[width=0.99\linewidth, height=5.5cm]{figures/prueba.png}
+%    \includegraphics[width=0.99\linewidth, height=5.5cm]{figures/infraestructura_ch.png}
 %		\caption{Infraestructura de Chrono}
-%		\label{fig.dispch}
+%		\label{fig.infraestructura_ch}
 %		\end{center}
 %\end{figure}
 
 \subsection{Modelo de robot F1}
-El robot que se ha utilizado para esta práctica es un modelo de robot terrestre móvil que cuenta con 4 ruedas. El chasis elegido corresponde a un modelo de F1, específicamente del modelo RedBull. Además de este modelo se han incluido un gran conjunto de modelos de F1 correspondientes a las principales escudería que participan en la Fórmula 1. Esto supone un total de 12 modelos coches con escuderías específicas (India, HRT, Lotus, Mclaren, Mercedes, RedBull, Renault, Tororroso, Virgin y Williams) y un modelos sin marca comercial. Además, para cada modelo de coche ha sido necesario el desarrollo de dos modelos distintos, uno que incorpora una cámara, para esta práctica, y otro modelo que tiene un láser para otras prácticas de JdeRobot. Gracias a estos modelos, en la práctica actual puede usarse indistintamente el modelo preferido por el estudiante (Figura 4.2).
+El robot que se ha utilizado para esta práctica es un modelo de robot terrestre móvil que cuenta con 4 ruedas. El chasis elegido corresponde a un modelo de F1, específicamente del modelo RedBull. Además de este modelo se han incluido un gran conjunto de modelos de F1 correspondientes a las principales escuderías que participan en la Fórmula 1. Esto supone un total de 12 modelos de coches de escuderías reales (India, HRT, Lotus, Mclaren, Mercedes, RedBull, Renault, Tororroso, Virgin y Williams) y un modelos sin marca comercial. Además, para cada modelo de coche ha sido necesario el desarrollo de dos modelos distintos, uno que incorpora una cámara, para esta práctica, y otro modelo que tiene un láser para otras prácticas de \textit{JdeRobot}. Gracias a estos modelos, en la práctica actual puede usarse indistintamente el modelo preferido por el estudiante (Figura \ref{fig.f1s}).
 
+%\begin{figure}[H]
+%  \begin{center}
+%    \includegraphics[width=0.99\linewidth, height=5.5cm]{figures/prueba.png}
+%		\caption{Modelos disponibles de coches}
+%		\label{fig.f1s}
+%		\end{center}
+%\end{figure}
 
-
-Cualquiera de los modelos de la Figura 4.2 utiliza los \textit{plugins} de ROS para dotar al modelo de movimiento, captación de imágenes y odometría. Estos \textit{plugins} son ofrecidos por las librerías de \textit{ROS Kinetic}:
+Cualquiera de los modelos de la Figura \ref{fig.f1s} utiliza los \textit{plugins} de ROS para dotar al modelo de movimiento, captación de imágenes y odometría. Estos \textit{plugins} son ofrecidos por las librerías de \textit{ROS Kinetic}:
 
 \begin{itemize}
 	\item \textit{libgazebo\_ros\_camera}
@@ -118,7 +124,7 @@ Esta práctica tiene dos hilos de ejecución para aliviar la carga computacional
 
 \begin{itemize}
 	\item Hilo de sensores: este hilo se encarga de la actualización de los datos de los sensores del robot. Este hilo se comunica con \textit{Gazebo} para recoger datos de la odometría y la cámara y para publicar datos de control del motor para mover el robot.
-	\item Hilo de la interfaz gráfica del usuario (GUI): este hilo se encarga del refresco del GUI de la práctica. En esta práctica tiene una carga cmputacional elevada dado se encarga de refrescar las imágenes obtenidas por la cámaras, el procesamiento visual sobre esa imagen que ha realizado el alumno, un mapa del circuito con la posición actualizada del robot y del robot fantasma a vencer, y una lectura controlada de tiempos para sincronizar ambos coches.
+	\item Hilo de la interfaz gráfica del usuario (GUI): este hilo se encarga del refresco del GUI de la práctica. En esta práctica tiene una carga computacional elevada dado se encarga de refrescar las imágenes obtenidas por la cámaras, el procesamiento visual sobre esa imagen que ha realizado el alumno, un mapa del circuito con la posición actualizada del robot y del robot fantasma a vencer, y una lectura controlada de tiempos para sincronizar ambos coches.
 \end{itemize}
 
 Gracias a esta interfaz gráfica el estudiante puede servirse de algunos elementos de depuración que veremos en profundidad en la sección 5.3.2 y 5.3.3. De esta manera el alumno solo tiene que centrarse en el desarrollo del algoritmo. El nodo académico dispone de una función reservada para que el alumno escriba su algoritmo en ella y pueda ver los resultados, todo ello viene indicado en fichero \textit{README.md} de la práctica.
@@ -135,6 +141,7 @@ El nodo académico proporciona un API de sensores y actuadores al programador pa
 \subsection{Interfaz gráfica}
 La interfaz gráfica del usuario (GUI), se utiliza para representar información relacionada con los sensores del robot. Esta información es muy útil para la depuración del algoritmo del estudiante ya que permite la visualización de las publicaciones que realiza el algoritmo al robot.
 
+Esta GUI (Figura \ref{fig.guich}) está formada por cuatro \textit{widgets}, uno para el visionado del robot, otro para su comportamiento, otro para su odometría y otro para la sincronización de la grabación de ROS con el nodo académico.
 
 \begin{figure}[H]
   \begin{center}
@@ -143,8 +150,6 @@ La interfaz gráfica del usuario (GUI), se utiliza para representar información
 		\label{fig.guich}
 		\end{center}
 \end{figure}
-
-Esta GUI (Figura \ref{fig.guich}) está formada por tres \textit{widgets}, uno para el visionado del robot, otro para su comportamiento, otro para su odometría y otro para la sincronización de la grabación de ROS con el nodo académico.
 
 El \textit{widget} superior recoge las imágenes captadas por la cámara del robot  y las muestra en una ventana del GUI. Al lado de las imágenes captadas por la cámara se muestra otra ventana con el filtrado que realice el alumno de esas imágenes. Esto es muy útil para el estudiante a la hora de enfrentarse al problema de visión que supone la primera parte de la solución de la práctica.
 
@@ -186,7 +191,7 @@ El segundo botón es complementario al primero, pues su funcionalidad es la de r
 	\begin{center}
         \includegraphics[width=0.98\textwidth]{figures/boton_start_chrono.png}
 		\captionof{figure}{Ilustración del botón de comienzo académico}
-		\label{fig:bsch}
+		\label{fig.bsch}
 	\end{center}
 \end{figure}
 
@@ -285,7 +290,7 @@ A continuación se muestra una imagen (Figura \ref{fig.ltch}) del \textit{widget
 \section{Soluciones de referencia}
 Para la práctica, ha sido necesario el desarrollo de dos soluciones de referencia distintas. Una de ellas ha sido adaptada de una solución previamente hecha y la otra solución ha sido programada por completo.
 
-La primera solución ha sido adaptada de otra práctica de \textit{JdeRobot-Academy} llamada \textit{Follow_Line}. Aunque esta práctica es similar, la solución estaba desactualizada por lo que ha sido necesaria una actualización del código, en específico de la parte de comparación de píxeles en la imagen filtrada y de la parte de control de movimiento. La actualización de la parte del control de movimiento ha sido más completa debido a que la velocidad del coche en las curvas era demasiado elevada y no estaba sincronizada con el refresco y filtrado de imagen que realiza la cámara insertada en el coche de 20 imágenes por segundo.
+La primera solución ha sido adaptada de otra práctica de \textit{JdeRobot Academy} llamada \textit{Follow Line}. Aunque esta práctica es similar, la solución estaba desactualizada por lo que ha sido necesaria una actualización del código, en específico de la parte de comparación de píxeles en la imagen filtrada y de la parte de control de movimiento. La actualización de la parte del control de movimiento ha sido más completa debido a que la velocidad del coche en las curvas era demasiado elevada y no estaba sincronizada con el refresco y filtrado de imagen que realiza la cámara insertada en el coche de 20 imágenes por segundo.
 
 La segunda solución desarrollada, ha sido creada por completo utilizando la librería \textit{OpenCV}, con funciones \textit{Built-in} proporcionadas por la misma que facilitan la comprensión del código programado. Para ello ha sido necesario un estudio más profundo de esta librería que ha dotado de la inteligencia necesaria para reescribir el filtrado de imagen en un algoritmo mucho más eficiente y que permite un procesamiento de las imágenes más elevado. Gracias a esto, la velocidad del robot es mayor y por consiguiente, completa la vuelta al circuito sin colisiones y en un tiempo menor.
 
@@ -528,7 +533,7 @@ Además de realizar la conexión con los sensores y actuadores, al ejecutar la i
 Una vez inicializados los \textit{drivers de ROS-Kinetic}, el escenario en el simulador y el nodo académico, con su GUI, se puede iniciar el algoritmo desarrollado por el alumno pulsando sobre el botón ``Play Code''. De esta manera, la lógica programada podrá ser visualizada tanto en el GUI, como en el simulador.
  
 \subsection{Ejecución estática}
-En el caso en el que el alumno no programa el control de movimiento en su algoritmo, es posible ejecutar el código de igual manera. Esto es útil para depurar el algoritmo de procesamiento de imagen. 
+En el caso en el que el alumno no programe el control de movimiento en su algoritmo, es posible ejecutar el código de igual manera. Esto es útil para depurar el algoritmo de procesamiento de imagen. 
 
 El alumno tiene dos opciones en este aspecto. La primera consiste en dejar el robot inmóvil y ver el procesamiento realizado en la ventana para la imagen procesada del GUI. 
 
@@ -550,7 +555,7 @@ self.motors.sendV(1)
 \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.98\textwidth]{figures/ejec_semiestat_chrono.png}
-		\caption{Ejecución con teleoperador}
+		\caption{Ejecución con velocidad fija}
 		\label{fig.esech}
 		\end{center}
 \end{figure}
@@ -580,7 +585,7 @@ En este punto hay que tener especial cuidado con las curvas dado que la línea v
 \section{Cuadernillo académico Jupyter}
 Como parte paralela a la práctica incluida en \textit{JdeRobot-Academy}, se ha desarrollado la misma práctica en con cuadernillos de \textit{Jupyter}. Gracias a esto, el alumno puede programar y ejecutar el código mediante la utilización del navegador web que prefiera.
 
-Esto supone un paso importante hacia la multiplataforma del entorno docente \textit{JdeRobot-Academy}, dado que el alumno puede acceder a las prácticas desde el sistema operativo que prefiera, pues sólo necesita acceso a internet.
+Esto supone un paso importante hacia la multiplataforma del entorno docente \textit{JdeRobot Academy}, dado que el alumno puede acceder a las prácticas desde el sistema operativo que prefiera, pues sólo necesita acceso a internet.
 
 Para que sea posible este hecho, ha sido necesaria una reestructuración del nodo académico y de los ficheros que lo componen, además del método de desarrollo del algoritmo.
 
