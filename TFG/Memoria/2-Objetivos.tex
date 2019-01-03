@@ -1,0 +1,74 @@
+\chapter{Objetivos}\label{cap.objetivos}
+Una vez introducido el contexto en que se ha desarrollado este trabajo, es hora de profundizar en los objetivos que se han tratado de alcanzar, los requisistos para las soluciones desarrolladas y la metodología que se ha seguido para conseguirlos.
+
+\section{Objetivos}
+La meta alcanzada en este preyecto es el desarrollo de una nueva práctica de sisemas robóticos para el entorno docente de JdeRobot-Academy llamada \textit{Chrono} y la optimización de una práctica existente llamada \textit{Follow Road}, así como una actualización de sus drivers para que soporte ROS y su inclusión en la infraestructura web de JdeRobot-Academy-Web.
+
+La primera práctica consiste en la competición de dos coches de F1 por un circuito que dispone de una línea roja que se debe seguir. El código del alumno competirá con el F1 del mejor tiempo registrado para el circuito en el que esté compitiendo. De esta manera consguiremos que el alumno pueda depurar su código de solución y tenga un estímulo para alncanzar la perfección en el desarrollo de su algoritmo.
+
+En cuanto a la segunda práctica, trata de un dron con con una cámara que debe seguir una carretera. El código del alumno deberá filtrar las imágenes para segmentar la carretera y dotar de un movimiento conttrolado al dron que le permita seguir la carretera.
+
+\section{Requisitos}
+A continuación se van a enumerar los requisitos necesarios para proporcionar soporte al software desarrollado:
+
+\begin{enumerate}
+	\item El Sistema Operativo empleado será Ubuntu 16.04 LTS.
+	\item Se utilizará el \textit{middleware} robótico JdeRobot en su versión 5.6.2. El uso de este \textit{middleware} robótico simplifica el desarrollo del comportamiento del robot.
+	\item Se usará \textit{OpenCV3} para la filtración de las imágenes captadas por las cámaras en ambas prácticas.
+	\item Para dar soporte a los sensores y actuadores se utilizará \textit{ROS-Kinetic}.
+	\item Para mostrar el comportamiento de los robots y el desarrollo de un mundo que los soporte se utilizará el simulador \textit{Gazebo}.
+	\item El lenguaje de programación utilizado para el desarollo de ambas prácticas será \textit{Python} en su versión 2.7.12, por compatibilidad con el \textit{middleware} robótico JdeRobot y con el \textit{middleware ROS-Kinetic}.
+	\item Las soluciones desarrolladas deben ejecutar algoritmos en tiempo real, por lo que deben ser eficientes y realizar movimientos suaves.
+\end{enumerate}
+
+\section{Metodología}
+El desarrollo de este Trabajo de Fin de Grado puede descomponerse en un conjunto de iteraciones con distintas fase. Cada fase está formada por una reunión semanal con el tutor para determinar los objetivos a abordar, la planificación de cómo abordarlos, intentar solucionar los problemas que vayan a surgir anticipadamente y la consecución de los objetivos durante la semana. De esta manera se ha coneguido un desarrollo fluido y completo, asentando los conocimientos y despejando las dudas que surgían durante los meses dedicados a este deesarrollo.
+
+Además de las reuniones semanales, se han utilizado herramientas de apoyo como la bitácora semanal en la Wiki de JdeRobot\footnote{\url{https://jderobot.org/Pablomoreno-tfg}}, donde se redactaban los avances obtenidos acompañados de vídeos demostrativos e imágenes. El código desarrollado se almacenaba, progresivamente, en la plataforma Github, en un repositorio personal\footnote{\url{https://github.com/RoboticsURJC-students/2017-tfg-pablo-moreno}} \footnote{\url{https://github.com/PabloMorenoVera/JdeRobot}} \footnote{\url{https://github.com/PabloMorenoVera/Academy}}, a los cuales el tutor tiene acceso para dar realimentación y orientar el proceso.
+
+ El modelo de desarrollo escogido ha sido el modelo creado por Barry Boehm, dado que al tratarse de un modelo en espiral, se adaptada a la perfección a nuestras necesidades, permitiendo disponer de flexibilidad ante cambios en los requisitos semanales, algo común mientras avanzaba el desarrollo, a la par que nos permitía separar el objetivo final en varias sub-tareas más sencillas. Con esto se ha conseguido una subsanación de los riesgos temprana y la definición de una arquitectura en las fases iniciales del desarrollo, todo ello dotado con un control de calidad continuo.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{figures/modelo_espiral.png}
+		\caption{Modelo de desarrollo en espiral}
+		\label{fig.espiral}
+		\end{center}
+\end{figure}
+
+La ventaja de este ciclo de vida es que permite la obtenicón de prototipos funcionales en una etapa temprana, la optimización progresiva del prototipo desarrollado y, en última instancia, pulir los detalles para abarcar la totalidad de los requisitos especificados (Figura 2.1). De esta manera el trabajo se desarrolla de manera incremental con cuatro fases bien definidas:
+
+\begin{itemize}
+	\item[--] \textbf{Determinar objetivos}: Esta primera fase del ciclo está formada por la definición de las metas.
+	\item[--] \textbf{Análisis del riesgo}: Se evalúan los posibles problemas iniciales al desarrollo y las soluciones a los mismos.
+	\item[--] \textbf{Desarrollar y probar}: En esta tercera fase se procede al desarrollo del trabajo propiamente dicho, junto con una serie de pruebas para verificar su funcionamiento.
+	\item[--] \textbf{Planificación}: En esta última fase del ciclo se valoran los resultados obtenidos y se planifican las siguientes etapas del proyecto.
+\end{itemize}
+
+\section{Plan de trabajo}
+Para la consecución de los objetivos descritos, se han seguido las siguientes etapas de trabajo:
+
+\begin{itemize}
+	\item[--] \textbf{Familiarización con el entorno JdeRobot}: una vez descargado e instalado tanto el software, dependencias y bibliotecas como el simulador, se tomará un primer contacto con el entorno JdeRobot mediante la modificación y readaptación de algunas prácticas existentes, como sus interfaces gráficas.
+	\item[--] \textbf{Toma de contacto con el simulador Gazebo}: esa etapa se ha dedicado al desarrollo de algunos modelos en el simmulador, estudiando ejemplos disponibles en la web\footnote{\url{http://gazebosim.org/tutorials}} y en JdeRobot, así como modificándolos y desarrollando algunos modelos nuevos (Figuras ~\ref{fig:estanteria} y ~\ref{fig:warehouserobot}). En esta etapa también se han estudiado el funcionamiento básico de los \textit{plugins} que dispone Gazebo para el control de sus robots, sensores y acutadores. Esto ha suspuesto una toma de contacto con el lenguaje de programación C++ utilizado, también, para comprender los \textit{plugins} de ROS-Kinetic.
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[h]{.48\linewidth}
+		\centering
+		\includegraphics[width=.5\linewidth, height=7cm]{figures/estanteria.png}
+		\captionof{figure}{Modelo estantería}
+		\label{fig:estanteria}
+	\end{minipage}
+	\begin{minipage}[H]{.48\linewidth}
+		\centering
+		\includegraphics[width=.7\linewidth, height=7cm]{figures/warehouse_robot.png}
+		\captionof{figure}{Warehouse robot}
+		\label{fig:warehouserobot}
+	\end{minipage}
+\end{figure}
+	\item[--] \textbf{Estudio de las bibliotecas}: En este punto fue necesario el estudio de diferentes bibliotecas disponibles en python para poder comenzar con el desarrollo de las prácticas. Fue necesario el estudio de bibliotecas como \textit{OpenCV}, Threading, Numpy y PyQt5.
+	\item[--] \textbf{Optimización de la práctica del sigue carretera}: Esta práctica estaba bastante obsoleta y se procedió a renovar por completo su interfaz gráfica, el escenario utilizado incluyendo un nuevo dron que soportaba ROS y una nueva conexión de los sensores y actuadores del propio dron. Además se desarrolló una optimización global del nodo académico como la inclusión de una pausa académica. Además se creó una versión de la práctica para la plataforma Jupyter y se incluyó en el elenco de práticas soportadas en JdeRobot-Academy-Web.
+	\item[--] \textbf{Desarrollo de una solución de referencia para la práctica}.
+	\item[--] \textbf{Preparación de la infraestuctura del ejercicio chrono}: Se desarrollará el modelo del F1 y el circuito para competir en \textit{Blender} y \textit{SketchUp} para conformar el escenario de Gazebo. También se desarrollarán los drivers del robot F1 para dar soporte en ROS-Kinetic de los motores. la cámara y el láser. Se creará el noodo académico de la práctica para alojar el código del estudiante y la versión de la práctica para Jupyter.
+	\item[--] \textbf{Desarrollo de una solución de referencia para chrono}.
+\end{itemize}
