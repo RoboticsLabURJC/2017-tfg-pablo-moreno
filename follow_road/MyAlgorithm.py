@@ -5,13 +5,7 @@ import cv2
 import numpy as np
 import math
 
-import rospy
-import mavros
-import threading
-from mavros import setpoint as SP
-
 time_cycle = 80
-
 value_min_HSV = np.array([20, 0, 0])
 value_max_HSV = np.array([100, 130, 130])
 
@@ -20,10 +14,10 @@ class MyAlgorithm(threading.Thread):
     def __init__(self, drone):
         self.drone = drone
 
-        self.yaw = 0.0
-
         self.height = 240
         self.width = 320
+
+        self.yaw = 0.0
 
         self.imageV=None
         self.imageF =None
@@ -124,7 +118,7 @@ class MyAlgorithm(threading.Thread):
                 try:
                     M = cv2.moments(contours_V[0])
                 except IndexError:
-                    self.drone.sendCMDVel(0,0,2,0,0,0,0,0,0,0,0)
+                    self.drone.sendCMDVelocities(0,0.3,0,0)
                     M = cv2.moments(0)
 
             if int(M['m00']) != 0:
@@ -134,14 +128,15 @@ class MyAlgorithm(threading.Thread):
 
             #move the drone
                 if cy > 120:
-                    self.drone.sendCMDVel(0,0,2,0,0.3,0,0,0,0,0,0.2)
+                    self.drone.sendCMDVelocities(0,0.3,0,0.2)
                     print("Turning")
                 elif cx < 20:
                     print("Detected two roads")
+                    self.drone.sendCMDVelocities(0,0.3,0.1,0.0)
                 else:
-                    self.drone.sendCMDVel(0,0,2,0,0.3,0,0,0,0,0,(self.yaw-int(cx))*0.01)
+                    self.drone.sendCMDVelocities(0,0.3,0,0.0)
 
-                print("cx: " + str(cx) + " cy: " + str(cy) + " Yaw: " + str((self.yaw-int(cx))*0.01))
+                print("cx: " + str(cx) + " cy: " + str(cy))
                 self.yaw = int(cx)
 
                 #drawing the center

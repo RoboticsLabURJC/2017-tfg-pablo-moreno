@@ -91,7 +91,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.algorithm.stop()
             self.rotationDial.setValue(self.altdSlider.maximum()/2)
             self.altdSlider.setValue(self.altdSlider.maximum()/2)
-            self.drone.sendCMDVel(0,0,0,0,0,0,0,0,0,0,0)
+            self.drone.sendCMDVelocities(0,0,0,0)
             self.teleop.stopSIG.emit()
 
     def resetClicked(self):
@@ -125,7 +125,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.reset=True
             self.rotationDial.setValue(self.altdSlider.maximum()/2)
             self.altdSlider.setValue(self.altdSlider.maximum()/2)
-            self.drone.sendCMDVel(0,0,0,0,0,0,0,0,0,0,0)
+            self.drone.sendCMDVelocities(0,0,0,0)
             self.teleop.stopSIG.emit()
 
     def showSensorsWidget(self,state):
@@ -150,7 +150,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.drone.sendVelocities()
 
     def setXYValues(self,newX,newY):
-        self.drone.sendCMDVel(0,0,0,-newX,-newY,0,0,0,0,0,0)
+        self.drone.sendCMDVelocities(-newX,-newY,0,0)
 
     def closeEvent(self, event):
         self.algorithm.kill()
